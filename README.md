@@ -1,3 +1,4 @@
+[![popover](https://github.com/ilya1981/popover/actions/workflows/main.yml/badge.svg)](https://github.com/ilya1981/popover/actions/workflows/main.yml)
 # Popovers
 ## Описание
 
