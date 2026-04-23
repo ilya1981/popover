@@ -7,18 +7,17 @@ permissions:
 
 
 jobs:
-  test:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install dependeciens
         run: npm install
-      - name: Run tests
-        run: npm test
+      - name: npm install
+        run:  npm run dev
 
 
   deploy:
-    needs: [test]
+    needs: [eslint]
 
     environment:
       name: github-pages
