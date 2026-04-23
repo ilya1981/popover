@@ -30,20 +30,20 @@ export default class Popover {
 
     const popperArrowElement = document.createElement('div');
     popperArrowElement.classList.add('popover__arrow');
-    popperElement.appendChild(popperArrowElement);
+    popperElement.append(popperArrowElement);
 
     const popoverHeaderElement = document.createElement('h3');
     popoverHeaderElement.classList.add('popover__header');
     popoverHeaderElement.textContent = activator.dataset.title;
-    popperElement.appendChild(popoverHeaderElement);
+    popperElement.append(popoverHeaderElement);
 
     const popoverBodyElement = document.createElement('div');
     popoverBodyElement.classList.add('popover__body');
     popoverBodyElement.textContent = activator.dataset.content;
-    popperElement.appendChild(popoverBodyElement);
+    popperElement.append(popoverBodyElement);
 
     this._popovers.push({ id, element: popperElement });
-    document.body.appendChild(popperElement);
+    document.body.append(popperElement);
 
     const { left, top } = activator.getBoundingClientRect();
 
