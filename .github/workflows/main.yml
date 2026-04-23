@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependeciens
         run: npm install
-      - name: npm install
-        run:  npm run dev
+      - name: Run test
+        run:  npm test
 
 
   deploy:
-    needs: [eslint]
+    needs: [test]
 
     environment:
       name: github-pages
