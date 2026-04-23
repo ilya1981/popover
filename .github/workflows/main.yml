@@ -12,9 +12,29 @@ jobs:
         run: npm test
 
 
-  deploy:
-    needs: test
+  build:
+    needs: [test]
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Deploying to production..."
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 25.9.0
+      - run: npm install
+      - run: npm build
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+  
